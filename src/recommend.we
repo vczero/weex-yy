@@ -1,0 +1,63 @@
+<template>
+    <div>
+      <text class="title-big">推荐专题</text>
+      <div class="img-view">
+        <div class="img-div-left center">
+          <image class="img" style="width:{{width}};height:{{height}};" resize="cover" src="http://7xtp9h.com2.z0.glb.clouddn.com/3.png"/>
+        </div>
+        <div class="img-div-right center">
+          <image class="img" style="width:{{width}};height:{{height}};" resize="cover" src="http://7xtp9h.com2.z0.glb.clouddn.com/1.png"/>
+        </div>
+      </div>
+    </div>
+</template>
+
+<style>
+ .center{
+   justify-content:center;
+   align-items:center;
+  }
+ .title-big{
+   font-size:30;
+   font-weight:200;
+   color:#444444;
+   margin-left:10;
+ }
+ .img-view{
+   flex-direction:row;
+   height:200;
+   margin-top:20;
+ }
+ .img-div-left{
+   flex:1;
+   margin-left:10;
+   margin-right:5;
+ }
+ .img-div-right{
+   flex:1;
+   margin-left:5;
+   margin-right:10;
+ }
+ .img{
+   border-radius:5;
+ }
+</style>
+
+<script>
+  module.exports = {
+    data:{
+     width: 0,
+     height: 0
+    },
+    created: function(){
+        var config = this.$getConfig();
+        if(config.env.platform == 'Web'){
+            this.width = (config.env.deviceWidth - 30) / 2;
+            this.height = (config.env.deviceHeight -30) / 2;
+        }else{
+            this.width = config.env.deviceWidth - 30 ;
+            this.height = config.env.deviceHeight - 30
+        }
+    }
+  };
+</script>

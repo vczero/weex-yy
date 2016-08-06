@@ -1,0 +1,20 @@
+<template>
+  <div>
+    <search></search>
+    <hr></hr>
+    <scroller>
+     <div>
+       <recommend></recommend>
+       <hr></hr>
+     </div>
+    </scroller>
+  </div>
+</template>
+
+<style></style>
+
+<script>
+    require('./search.we');
+    require('./hr.we');
+    require('./recommend.we');
+</script>
