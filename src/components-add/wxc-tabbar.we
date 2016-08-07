@@ -48,11 +48,22 @@
 
           this.$on('tabItem.onClick',function(e){
             var detail= e.detail;
-            this.selectedIndex = detail.index;
-            this.selected(detail.index);
+            var index = detail.index;
+            this.selectedIndex =
+            this.selected(index);
+            var src = this.tabItems[index].src;
+            var title = this.tabItems[index].title;
+
+            /*var path = './index.html?page='+ src +'&title=' + title;
+            var navigator = require('@weex-module/navigator');
+            var params = {
+                'url': path,
+                'animated' : 'true',
+            }
+            navigator.push(params, function(e) {});*/
 
             var params = {
-              index: detail.index
+                index: detail.index
             };
             this.$dispatch('tabBar.onClick', params);
           });

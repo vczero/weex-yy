@@ -41,8 +41,11 @@
         left: 172; 
         right: 172;
         text-align: center; 
-        font-size: 30;
+        font-size: 33;
         font-weight: bold;
+        text-overflow:ellipsis;
+        height:42;
+        lines:1;
     }
     .left-image {
         position: absolute; 

@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="item" repeat="{{hotRecommend}}" onclick="openWebPage">
+        <div class="item" url="{{url}}" title="{{title}}"  repeat="{{hotRecommend}}" onclick="openWebPage">
             <image class="img" src="{{img}}" style="width:{{width}};" resize="cover"></image>
             <text class="title">{{title}}</text>
         </div>
@@ -43,16 +43,16 @@
         },
         methods: {
             openWebPage: function(e){
-                console.log(e.target);
-                /*var url = this.recommend[index].url;
-                var title = this.recommend[index].title;
+                var obj = e.target.attr;
+                var url = obj.url;
+                var title = obj.title;
                 var path = './index.html?page='+ './dist/yywebview.js&weixin_title=' + title + '&weixin_url=' + url;
                 var navigator = require('@weex-module/navigator');
                 var params = {
                     'url': path,
                     'animated' : 'true',
                 }
-                navigator.push(params, function(e) {});*/
+                navigator.push(params, function(e) {});
             }
         }
     };
