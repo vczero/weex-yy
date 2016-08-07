@@ -1,13 +1,99 @@
 <template>
-  <div class="wrapper">
-    <text class="text" style="color:{{color}}">阅读</text>
+  <div>
+    <search></search>
+    <hr></hr>
+    <scroller class="container">
+     <div class="container">
+       <recommend recommend="{{recommendTopic}}"></recommend>
+
+       <hr></hr>
+       <text class="title-big">热门推荐</text>
+       <hot-recommend hot-recommend="{{hotRecommend1}}"></hot-recommend>
+       <hot-recommend hot-recommend="{{hotRecommend2}}"></hot-recommend>
+
+       <hr></hr>
+       <text class="title-big">专题分类</text>
+       <category list="{{category1}}"></category>
+       <category list="{{category2}}"></category>
+
+       <hr></hr>
+       <text class="title-big">轻松一刻</text>
+       <hot-recommend hot-recommend="{{cookies1}}"></hot-recommend>
+       <hot-recommend hot-recommend="{{cookies2}}"></hot-recommend>
+
+       <div style="height:50"></div>
+     </div>
+    </scroller>
   </div>
 </template>
 
 <style>
-
+    .title-big{
+       font-size:30;
+       font-weight:200;
+       color:#444444;
+       margin-left:10;
+       margin-bottom:10;
+    }
+    .container{
+        flex: 1
+    }
 </style>
 
 <script>
+    require('./search.we');
+    require('./hr.we');
+    require('./recommend.we');
+    require('./hot-recommend.we');
+    require('./category.we');
 
+    module.exports = {
+        data:{
+         width: 0,
+         height: 0,
+         recommendTopic:[],
+         hotRecommend1:[],
+         hotRecommend2:[],
+         category1: [],
+         category2: [],
+         cookies1: [],
+         cookies2: []
+        },
+        created: function(){
+            this._getData();
+        },
+        methods:{
+            _getData: function(){
+                var that = this;
+                var stream = require('@weex-module/stream');
+                var url = "http://123.57.39.116:3000/data/read?type=config";
+                stream.fetch({
+                  method: 'GET',
+                  url: url,
+                  type:'json'
+                }, function(response) {
+                    if(response.status == 200){
+                      var data = response.data;
+                      if(data.status){
+                        var obj = data.data;
+                        that.recommendTopic = obj.recommendTopic;
+                        that.hotRecommend1 = obj.hotTopic.slice(0, 4);
+                        that.hotRecommend2 = obj.hotTopic.slice(4, 8);
+                        that.category1 = obj.category.slice(0, 2);
+                        that.category2 = obj.category.slice(2, 4);
+                        that.cookies1 = obj.other.slice(0, 4);
+                        that.cookies2 = obj.other.slice(4, 8);
+                      }else{
+                       //TODO:
+                      }
+                    }else{
+                        //TODO:错误处理
+                    }
+                },function(err){
+                    //console.log(err);
+                    //TODO:错误处理
+                });
+            }
+        }
+      };
 </script>

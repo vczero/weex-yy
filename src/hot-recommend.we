@@ -1,0 +1,49 @@
+<template>
+    <div class="row">
+        <div class="item" repeat="{{hotRecommend}}">
+            <image class="img" src="{{img}}" style="width:{{width}};" resize="cover"></image>
+            <text class="title">{{title}}</text>
+        </div>
+    </dvi>
+</template>
+
+<style>
+    .row{
+        flex-direction: row;
+        height: 310;
+        margin-top:5;
+    }
+    .title{
+        font-size:24;
+        font-weight:300;
+        margin-top:5;
+        color:#414141;
+        lines: 3;
+        height:60;
+        text-overflow:ellipsis;
+    }
+
+    .img{
+        height:240;
+    }
+    .item{
+        margin-left:10;
+    }
+</style>
+
+<script>
+    module.exports = {
+        data: {
+           hotRecommend: [],
+           width: 0
+        },
+
+        computed:{
+
+        },
+        created: function(){
+            var width = (this.$getConfig().env.deviceWidth - 50) /4;
+            this.width = width;
+        }
+    };
+</script>

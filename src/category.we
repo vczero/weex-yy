@@ -1,0 +1,69 @@
+<template>
+    <div class="row">
+        <div class="item-left center border">
+            <text class="title">{{texts[0]}}</text>
+        </div>
+        <div class="item-right center border">
+            <text class="title">{{texts[1]}}</text>
+        </div>
+    </div>
+</template>
+<style>
+    .row{
+        flex-direction: row;
+        height:150;
+        margin-top:6;
+    }
+    .item-left{
+        flex:1;
+        border-width:1;
+        border-color: #BEBEBE;
+        border-radius:4;
+        margin-left:10;
+        margin-right:5;
+    }
+
+    .item-right{
+        flex:1;
+        margin-left:5;
+        margin-right:10;
+    }
+    .center{
+        justify-content:center;
+        align-items: center;
+    }
+    .border{
+        border-width:1;
+        border-color: #BEBEBE;
+        border-radius:4;
+    }
+
+    .title{
+        font-weight:300;
+        font-size:28;
+        color:#2A2C28;
+    }
+</style>
+<script>
+    module.exports = {
+        data: {
+            list: [],
+            texts:[]
+        },
+        created: function(){
+
+        },
+        computed: {
+           texts: {
+               get: function(){
+                 var texts = [];
+                 for(var i in this.list){
+                    texts.push(this.list[i].text);
+                 }
+                 return texts;
+               }
+           }
+        }
+
+    };
+</script>

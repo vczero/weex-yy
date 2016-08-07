@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height:100;">
     <input class="search" type="text" autofocus="true" placeholder="搜索"></input>
   </div>
 </template>
@@ -17,6 +17,6 @@
    outline:none;
    border-radius:5;
    placeholder-color:#393939;
-   font-weight: 200
+   font-weight: 200;
  }
 </style>

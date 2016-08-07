@@ -48,7 +48,7 @@
     data:{
      width: 0,
      height: 0,
-     recommendList: [],
+     recommend: [],
     },
     created: function(){
         var config = this.$getConfig();
@@ -59,9 +59,9 @@
         imgs: {
             get: function(){
                 var imgs = [];
-                var recommendList = this.recommendList;
-                for(var i in recommendList){
-                    imgs.push(recommendList[i].img);
+                var recommend = this.recommend;
+                for(var i in recommend){
+                    imgs.push(recommend[i].img);
                 }
                 return imgs;
             }

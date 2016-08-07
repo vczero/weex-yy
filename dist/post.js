@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	;__weex_define__("@weex-component/94f0fa64df7e5f42b5f50c543973721a", [], function(__weex_require__, __weex_exports__, __weex_module__){
+	;__weex_define__("@weex-component/3a9a793e9ae0b0489f460ba9a9fffdb8", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
 	    __weex_module__.exports = {
@@ -52,7 +52,7 @@
 	            data2: []
 	        }},
 	        created: function(){
-	            
+
 	        },
 	        computed:{
 
@@ -86,7 +86,7 @@
 	;__weex_module__.exports.style = __weex_module__.exports.style || {}
 	;Object.assign(__weex_module__.exports.style, {})
 	})
-	;__weex_bootstrap__("@weex-component/94f0fa64df7e5f42b5f50c543973721a", {
+	;__weex_bootstrap__("@weex-component/3a9a793e9ae0b0489f460ba9a9fffdb8", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 

@@ -47,7 +47,7 @@
 	;__weex_define__("@weex-component/bb0e4f6e1bf6af7933ede6c4f6f69683", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
-	  __webpack_require__(4);
+	  __webpack_require__(1);
 	  var selectedColor = '#808080';
 	  var unselectedColor = '#808080';
 	  __weex_module__.exports = {
@@ -171,10 +171,7 @@
 	},undefined)
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	;__weex_define__("@weex-component/wxc-tabbar", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -182,7 +179,7 @@
 
 	;
 	    //在得到开源代码支持前,首先将开源代码拿出来修改,这样同步到其他协作同学
-	    __webpack_require__(5);
+	    __webpack_require__(2);
 	    __weex_module__.exports = {
 	        data: function () {return {
 	          tabItems: [ ],
@@ -294,7 +291,7 @@
 	})
 
 /***/ },
-/* 5 */
+/* 2 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/wxc-tabitem", [], function(__weex_require__, __weex_exports__, __weex_module__){
