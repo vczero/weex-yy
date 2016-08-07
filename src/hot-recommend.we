@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="item" repeat="{{hotRecommend}}">
+        <div class="item" repeat="{{hotRecommend}}" onclick="openWebPage">
             <image class="img" src="{{img}}" style="width:{{width}};" resize="cover"></image>
             <text class="title">{{title}}</text>
         </div>
@@ -37,13 +37,23 @@
            hotRecommend: [],
            width: 0
         },
-
-        computed:{
-
-        },
         created: function(){
             var width = (this.$getConfig().env.deviceWidth - 50) /4;
             this.width = width;
+        },
+        methods: {
+            openWebPage: function(e){
+                console.log(e.target);
+                /*var url = this.recommend[index].url;
+                var title = this.recommend[index].title;
+                var path = './index.html?page='+ './dist/yywebview.js&weixin_title=' + title + '&weixin_url=' + url;
+                var navigator = require('@weex-module/navigator');
+                var params = {
+                    'url': path,
+                    'animated' : 'true',
+                }
+                navigator.push(params, function(e) {});*/
+            }
         }
     };
 </script>

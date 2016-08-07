@@ -476,13 +476,23 @@
 	           hotRecommend: [],
 	           width: 0
 	        }},
-
-	        computed:{
-
-	        },
 	        created: function(){
 	            var width = (this.$getConfig().env.deviceWidth - 50) /4;
 	            this.width = width;
+	        },
+	        methods: {
+	            openWebPage: function(e){
+	                console.log(e.target);
+	                /*var url = this.recommend[index].url;
+	                var title = this.recommend[index].title;
+	                var path = './index.html?page='+ './dist/yywebview.js&weixin_title=' + title + '&weixin_url=' + url;
+	                var navigator = __weex_require__('@weex-module/navigator');
+	                var params = {
+	                    'url': path,
+	                    'animated' : 'true',
+	                }
+	                navigator.push(params, function(e) {});*/
+	            }
 	        }
 	    };
 
@@ -499,6 +509,9 @@
 	        "item"
 	      ],
 	      "repeat": function () {return this.hotRecommend},
+	      "events": {
+	        "click": "openWebPage"
+	      },
 	      "children": [
 	        {
 	          "type": "image",
