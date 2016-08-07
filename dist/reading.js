@@ -47,12 +47,12 @@
 	;__weex_define__("@weex-component/d1941be05959f607dc6e9c5880be36b1", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
-	    __webpack_require__(14);
-	    __webpack_require__(15);
-	    __webpack_require__(16);
-	    __webpack_require__(17);
-	    __webpack_require__(18);
-	    __webpack_require__(19);
+	    __webpack_require__(3);
+	    __webpack_require__(4);
+	    __webpack_require__(5);
+	    __webpack_require__(6);
+	    __webpack_require__(7);
+	    __webpack_require__(8);
 
 	    __weex_module__.exports = {
 	        data:function () {return {
@@ -244,18 +244,7 @@
 /***/ },
 /* 1 */,
 /* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
+/* 3 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/tabbar", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -411,7 +400,7 @@
 	})
 
 /***/ },
-/* 15 */
+/* 4 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/search", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -454,7 +443,7 @@
 	})
 
 /***/ },
-/* 16 */
+/* 5 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/hr", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -478,7 +467,7 @@
 	})
 
 /***/ },
-/* 17 */
+/* 6 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -631,7 +620,7 @@
 	})
 
 /***/ },
-/* 18 */
+/* 7 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/hot-recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -671,6 +660,9 @@
 	  "children": [
 	    {
 	      "type": "div",
+	      "style": {
+	        "flex": 1
+	      },
 	      "classList": [
 	        "item"
 	      ],
@@ -734,7 +726,7 @@
 	})
 
 /***/ },
-/* 19 */
+/* 8 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/category", [], function(__weex_require__, __weex_exports__, __weex_module__){

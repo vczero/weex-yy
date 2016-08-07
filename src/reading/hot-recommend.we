@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="item" url="{{url}}" title="{{title}}"  repeat="{{hotRecommend}}" onclick="openWebPage">
+        <div style="flex:1;" class="item" url="{{url}}" title="{{title}}"  repeat="{{hotRecommend}}" onclick="openWebPage">
             <image class="img" src="{{img}}" style="width:{{width}};" resize="cover"></image>
             <text class="title">{{title}}</text>
         </div>
