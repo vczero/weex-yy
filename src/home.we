@@ -4,7 +4,7 @@
     <hr></hr>
     <scroller>
      <div>
-       <recommend></recommend>
+       <recommend recommend-list="{{recommendTopic}}"></recommend>
        <hr></hr>
      </div>
     </scroller>
@@ -17,4 +17,41 @@
     require('./search.we');
     require('./hr.we');
     require('./recommend.we');
+
+    module.exports = {
+        data:{
+         width: 0,
+         height: 0,
+         recommendTopic:[]
+        },
+        created: function(){
+            this._getData();
+        },
+        methods:{
+            _getData: function(){
+                var that = this;
+                var stream = require('@weex-module/stream');
+                var url = "http://123.57.39.116:3000/data/read?type=config";
+                stream.fetch({
+                  method: 'GET',
+                  url: url,
+                  type:'json'
+                }, function(response) {
+                    if(response.status == 200){
+                      var data = response.data;
+                      if(data.status){
+                        that.recommendTopic = data.data.recommendTopic;
+                      }else{
+                       //TODO:
+                      }
+                    }else{
+                        //TODO:错误处理
+                    }
+                },function(err){
+                    //console.log(err);
+                    //TODO:错误处理
+                });
+            }
+        }
+      };
 </script>

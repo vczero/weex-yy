@@ -2,12 +2,12 @@
     <div>
       <text class="title-big">推荐专题</text>
       <div class="img-view">
-        <div class="img-div-left center">
-          <image class="img" style="width:{{width}};height:{{height}};" resize="cover" src="http://7xtp9h.com2.z0.glb.clouddn.com/3.png"/>
-        </div>
-        <div class="img-div-right center">
-          <image class="img" style="width:{{width}};height:{{height}};" resize="cover" src="http://7xtp9h.com2.z0.glb.clouddn.com/1.png"/>
-        </div>
+         <div class="img-div-left center">
+            <image class="img" style="width:{{width}};height:{{height}};" resize="cover" src="{{imgs[0]}}" />
+         </div>
+         <div class="img-div-right center">
+            <image class="img" style="width:{{width}};height:{{height}};" resize="cover" src="{{imgs[1]}}" />
+         </div>
       </div>
     </div>
 </template>
@@ -47,16 +47,24 @@
   module.exports = {
     data:{
      width: 0,
-     height: 0
+     height: 0,
+     recommendList: [],
     },
     created: function(){
         var config = this.$getConfig();
-        if(config.env.platform == 'Web'){
-            this.width = (config.env.deviceWidth - 30) / 2;
-            this.height = (config.env.deviceHeight -30) / 2;
-        }else{
-            this.width = config.env.deviceWidth - 30 ;
-            this.height = config.env.deviceHeight - 30
+        this.width = (config.env.deviceWidth - 30) / 2;
+        this.height = (config.env.deviceHeight -30) / 2;
+    },
+    computed: {
+        imgs: {
+            get: function(){
+                var imgs = [];
+                var recommendList = this.recommendList;
+                for(var i in recommendList){
+                    imgs.push(recommendList[i].img);
+                }
+                return imgs;
+            }
         }
     }
   };

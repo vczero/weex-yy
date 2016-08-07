@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	;__weex_define__("@weex-component/37715d44ed7fd759408d6bf9bc4c88ba", [], function(__weex_require__, __weex_exports__, __weex_module__){
+	;__weex_define__("@weex-component/64eb0679c4c4de8b1b91337b34fd1383", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 
 
@@ -53,6 +53,43 @@
 	    __webpack_require__(1);
 	    __webpack_require__(2);
 	    __webpack_require__(3);
+
+	    __weex_module__.exports = {
+	        data:function () {return {
+	         width: 0,
+	         height: 0,
+	         recommendTopic:[]
+	        }},
+	        created: function(){
+	            this._getData();
+	        },
+	        methods:{
+	            _getData: function(){
+	                var that = this;
+	                var stream = __weex_require__('@weex-module/stream');
+	                var url = "http://123.57.39.116:3000/data/read?type=config";
+	                stream.fetch({
+	                  method: 'GET',
+	                  url: url,
+	                  type:'json'
+	                }, function(response) {
+	                    if(response.status == 200){
+	                      var data = response.data;
+	                      if(data.status){
+	                        that.recommendTopic = data.data.recommendTopic;
+	                      }else{
+	                       //TODO:
+	                      }
+	                    }else{
+	                        //TODO:错误处理
+	                    }
+	                },function(err){
+	                    //console.log(err);
+	                    //TODO:错误处理
+	                });
+	            }
+	        }
+	      };
 
 	;__weex_module__.exports.template = __weex_module__.exports.template || {}
 	;Object.assign(__weex_module__.exports.template, {
@@ -71,7 +108,10 @@
 	          "type": "div",
 	          "children": [
 	            {
-	              "type": "recommend"
+	              "type": "recommend",
+	              "attr": {
+	                "recommendList": function () {return this.recommendTopic}
+	              }
 	            },
 	            {
 	              "type": "hr"
@@ -85,7 +125,7 @@
 	;__weex_module__.exports.style = __weex_module__.exports.style || {}
 	;Object.assign(__weex_module__.exports.style, {})
 	})
-	;__weex_bootstrap__("@weex-component/37715d44ed7fd759408d6bf9bc4c88ba", {
+	;__weex_bootstrap__("@weex-component/64eb0679c4c4de8b1b91337b34fd1383", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 
@@ -168,16 +208,24 @@
 	  __weex_module__.exports = {
 	    data:function () {return {
 	     width: 0,
-	     height: 0
+	     height: 0,
+	     recommendList: [],
 	    }},
 	    created: function(){
 	        var config = this.$getConfig();
-	        if(config.env.platform == 'Web'){
-	            this.width = (config.env.deviceWidth - 30) / 2;
-	            this.height = (config.env.deviceHeight -30) / 2;
-	        }else{
-	            this.width = config.env.deviceWidth - 30 ;
-	            this.height = config.env.deviceHeight - 30
+	        this.width = (config.env.deviceWidth - 30) / 2;
+	        this.height = (config.env.deviceHeight -30) / 2;
+	    },
+	    computed: {
+	        imgs: {
+	            get: function(){
+	                var imgs = [];
+	                var recommendList = this.recommendList;
+	                for(var i in recommendList){
+	                    imgs.push(recommendList[i].img);
+	                }
+	                return imgs;
+	            }
 	        }
 	    }
 	  };
@@ -219,7 +267,7 @@
 	              },
 	              "attr": {
 	                "resize": "cover",
-	                "src": "http://7xtp9h.com2.z0.glb.clouddn.com/3.png"
+	                "src": function () {return this.imgs[0]}
 	              }
 	            }
 	          ]
@@ -242,7 +290,7 @@
 	              },
 	              "attr": {
 	                "resize": "cover",
-	                "src": "http://7xtp9h.com2.z0.glb.clouddn.com/1.png"
+	                "src": function () {return this.imgs[1]}
 	              }
 	            }
 	          ]

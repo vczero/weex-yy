@@ -44,10 +44,20 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	;__weex_define__("@weex-component/487aa87ec41b692ef2b7299d217ac05a", [], function(__weex_require__, __weex_exports__, __weex_module__){
+	;__weex_define__("@weex-component/72ac26d3386bb38c1e25587f426034c2", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
-
+	    __weex_module__.exports = {
+	        data: function () {return {
+	            data2: []
+	        }},
+	        created: function(){
+	            console.log(this.$vm);
+	        },
+	        computed:{
+	            
+	        }
+	    };
 
 	;__weex_module__.exports.template = __weex_module__.exports.template || {}
 	;Object.assign(__weex_module__.exports.template, {
@@ -61,11 +71,14 @@
 	      "classList": [
 	        "text"
 	      ],
-	      "style": {
-	        "color": function () {return this.color}
-	      },
 	      "attr": {
 	        "value": "反馈"
+	      }
+	    },
+	    {
+	      "type": "text",
+	      "attr": {
+	        "value": function () {return this.text}
 	      }
 	    }
 	  ]
@@ -73,7 +86,7 @@
 	;__weex_module__.exports.style = __weex_module__.exports.style || {}
 	;Object.assign(__weex_module__.exports.style, {})
 	})
-	;__weex_bootstrap__("@weex-component/487aa87ec41b692ef2b7299d217ac05a", {
+	;__weex_bootstrap__("@weex-component/72ac26d3386bb38c1e25587f426034c2", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 

@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-     <text class="text" style="color:{{color}}">反馈</text>
+     <text class="text">反馈</text>
+     <text>{{text}}</text>
   </div>
 </template>
 
@@ -9,5 +10,15 @@
 </style>
 
 <script>
-
+    module.exports = {
+        data: {
+            data2: []
+        },
+        created: function(){
+            console.log(this.$vm);
+        },
+        computed:{
+            
+        }
+    };
 </script>
