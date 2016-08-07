@@ -56,12 +56,14 @@
     module.exports = {
         data: {
             list: [],
-            title: ''
+            title: '',
+            titleAdd:''
         },
 
         created: function(){
             var url = this.$getConfig().bundleUrl;
             this.title = decodeURIComponent(this._getUrlParam(url, 'title'));
+
             var type = this._getUrlParam(url, 'type');
             this._getData(type);
 
