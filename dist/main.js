@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	;__weex_define__("@weex-component/bb0e4f6e1bf6af7933ede6c4f6f69683", [], function(__weex_require__, __weex_exports__, __weex_module__){
+	;__weex_define__("@weex-component/c856b6d9461d44b24dc2873dcc10a4dc", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
 	  __webpack_require__(1);
@@ -122,7 +122,7 @@
 	          if (matches && matches.length >= 2) {
 	            host = matches[1];
 	          }
-	          nativeBase = 'http://' + host + '/' + this.dir + '/build/';
+	          nativeBase = 'http://' + host + '/' + this.dir;
 	        }
 	        var h5Base = './dist/';
 	        // in Native
@@ -166,7 +166,7 @@
 	  ]
 	})
 	})
-	;__weex_bootstrap__("@weex-component/bb0e4f6e1bf6af7933ede6c4f6f69683", {
+	;__weex_bootstrap__("@weex-component/c856b6d9461d44b24dc2873dcc10a4dc", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 

@@ -1,0 +1,57 @@
+<template>
+    <wxc-navpage class="nav"  title="{{title}}" background-color="#FFF" left-item-title="阅读" left-item-src="http://o94apbmjs.bkt.clouddn.com/left_icon3.png">
+        <web src="{{src}}" style="height:{{height}};" onpagestart="pagestart" onpagefinish="pagefinish" onerror="error"></web>
+    </wxc-navpage>
+</template>
+
+<style>
+    .text{
+        font-size:26;
+    }
+</style>
+<script>
+    require('./components-add/wxc-navpage.we');
+    //background-color="#0A60FE" title-color="#fff" left-item-color="#fff"
+    module.exports = {
+        data: {
+            src: '',
+            width: 0,
+            height: 0,
+            src: '',
+            title: '测试页面'
+        },
+
+        created: function(){
+            var config  = this.$getConfig();
+            this.width = config.env.deviceWidth;
+            this.height = config.env.deviceHeight;
+            var url = config.bundleUrl;
+            this.src = this._getUrl(url, 'weixin_url');
+            this.title = decodeURIComponent(this._getUrlParam(url, 'weixin_title'));
+        },
+
+        methods: {
+            pagestart: function(){
+                //TODO: loading
+            },
+            pagefinish: function(){
+                //TODO: close loading
+            },
+            error: function(){
+                //TODO: show infowindow
+            },
+            _getUrl: function(url, key){
+                var isExits = url.indexOf(key);
+                if(isExits > -1){
+                    return url.split('url=')[1];
+                }
+            },
+            _getUrlParam: function(url, key){
+                var reg = new RegExp('[?|&]' + key + '=([^&]+)');
+                var match = url.match(reg);
+                return match && match[1];
+            }
+        }
+    };
+
+</script>

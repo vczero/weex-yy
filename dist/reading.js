@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	;__weex_define__("@weex-component/47184c58126195fef8893c16dcd9eefb", [], function(__weex_require__, __weex_exports__, __weex_module__){
+	;__weex_define__("@weex-component/a226d1182c5ea9dcf649e4a839147185", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 
 
@@ -57,7 +57,7 @@
 	    __webpack_require__(5);
 	    __webpack_require__(6);
 	    __webpack_require__(7);
-
+	    //require('weex-components');
 	    __weex_module__.exports = {
 	        data:function () {return {
 	         width: 0,
@@ -233,7 +233,7 @@
 	  }
 	})
 	})
-	;__weex_bootstrap__("@weex-component/47184c58126195fef8893c16dcd9eefb", {
+	;__weex_bootstrap__("@weex-component/a226d1182c5ea9dcf649e4a839147185", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 
@@ -318,6 +318,7 @@
 	;__weex_define__("@weex-component/recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
+	  var webview = __weex_require__('@weex-module/webview');
 	  __weex_module__.exports = {
 	    data:function () {return {
 	     width: 0,
@@ -339,6 +340,19 @@
 	                }
 	                return imgs;
 	            }
+	        }
+	    },
+	    methods: {
+	        openWebPage: function(index){
+	            var url = this.recommend[index].url;
+	            var title = this.recommend[index].title;
+	            var path = './index.html?page='+ './dist/yywebview.js&weixin_title=' + title + '&weixin_url=' + url;
+	            var navigator = __weex_require__('@weex-module/navigator');
+	            var params = {
+	                'url': path,
+	                'animated' : 'true',
+	            }
+	            navigator.push(params, function(e) {});
 	        }
 	    }
 	  };
@@ -368,6 +382,9 @@
 	            "img-div-left",
 	            "center"
 	          ],
+	          "events": {
+	            "click": function ($event) {this.openWebPage(0,$event)}
+	          },
 	          "children": [
 	            {
 	              "type": "image",
@@ -391,6 +408,9 @@
 	            "img-div-right",
 	            "center"
 	          ],
+	          "events": {
+	            "click": function ($event) {this.openWebPage(1,$event)}
+	          },
 	          "children": [
 	            {
 	              "type": "image",

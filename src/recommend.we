@@ -2,10 +2,10 @@
     <div>
       <text class="title-big">推荐专题</text>
       <div class="img-view">
-         <div class="img-div-left center">
+         <div class="img-div-left center" onclick="openWebPage(0)">
             <image class="img" style="width:{{width}};height:{{height}};" resize="cover" src="{{imgs[0]}}" />
          </div>
-         <div class="img-div-right center">
+         <div class="img-div-right center" onclick="openWebPage(1)">
             <image class="img" style="width:{{width}};height:{{height}};" resize="cover" src="{{imgs[1]}}" />
          </div>
       </div>
@@ -44,6 +44,7 @@
 </style>
 
 <script>
+  var webview = require('@weex-module/webview');
   module.exports = {
     data:{
      width: 0,
@@ -65,6 +66,19 @@
                 }
                 return imgs;
             }
+        }
+    },
+    methods: {
+        openWebPage: function(index){
+            var url = this.recommend[index].url;
+            var title = this.recommend[index].title;
+            var path = './index.html?page='+ './dist/yywebview.js&weixin_title=' + title + '&weixin_url=' + url;
+            var navigator = require('@weex-module/navigator');
+            var params = {
+                'url': path,
+                'animated' : 'true',
+            }
+            navigator.push(params, function(e) {});
         }
     }
   };

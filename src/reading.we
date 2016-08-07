@@ -1,29 +1,29 @@
 <template>
   <div>
-    <search></search>
-    <hr></hr>
-    <scroller class="container">
-     <div class="container">
-       <recommend recommend="{{recommendTopic}}"></recommend>
+      <search></search>
+          <hr></hr>
+          <scroller class="container">
+           <div class="container">
+             <recommend recommend="{{recommendTopic}}"></recommend>
 
-       <hr></hr>
-       <text class="title-big">热门推荐</text>
-       <hot-recommend hot-recommend="{{hotRecommend1}}"></hot-recommend>
-       <hot-recommend hot-recommend="{{hotRecommend2}}"></hot-recommend>
+             <hr></hr>
+             <text class="title-big">热门推荐</text>
+             <hot-recommend hot-recommend="{{hotRecommend1}}"></hot-recommend>
+             <hot-recommend hot-recommend="{{hotRecommend2}}"></hot-recommend>
 
-       <hr></hr>
-       <text class="title-big">专题分类</text>
-       <category list="{{category1}}"></category>
-       <category list="{{category2}}"></category>
+             <hr></hr>
+             <text class="title-big">专题分类</text>
+             <category list="{{category1}}"></category>
+             <category list="{{category2}}"></category>
 
-       <hr></hr>
-       <text class="title-big">轻松一刻</text>
-       <hot-recommend hot-recommend="{{cookies1}}"></hot-recommend>
-       <hot-recommend hot-recommend="{{cookies2}}"></hot-recommend>
+             <hr></hr>
+             <text class="title-big">轻松一刻</text>
+             <hot-recommend hot-recommend="{{cookies1}}"></hot-recommend>
+             <hot-recommend hot-recommend="{{cookies2}}"></hot-recommend>
 
-       <div style="height:50"></div>
-     </div>
-    </scroller>
+             <div style="height:50"></div>
+           </div>
+      </scroller>
   </div>
 </template>
 
@@ -46,7 +46,7 @@
     require('./recommend.we');
     require('./hot-recommend.we');
     require('./category.we');
-
+    //require('weex-components');
     module.exports = {
         data:{
          width: 0,
