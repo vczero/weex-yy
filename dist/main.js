@@ -40,14 +40,15 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	;__weex_define__("@weex-component/5b74491a5d6a5baeb54b119c9256b201", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
-	  __webpack_require__(1);
+	  __webpack_require__(14);
 	    __weex_module__.exports = {
 	      data: function () {return {}}
 	    }
@@ -75,7 +76,8 @@
 	},undefined)
 
 /***/ },
-/* 1 */
+
+/***/ 14:
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/tabbar", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -231,4 +233,5 @@
 	})
 
 /***/ }
-/******/ ]);
+
+/******/ });

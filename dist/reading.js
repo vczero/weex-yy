@@ -47,12 +47,12 @@
 	;__weex_define__("@weex-component/d1941be05959f607dc6e9c5880be36b1", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
-	    __webpack_require__(1);
-	    __webpack_require__(2);
-	    __webpack_require__(3);
-	    __webpack_require__(4);
-	    __webpack_require__(5);
-	    __webpack_require__(6);
+	    __webpack_require__(14);
+	    __webpack_require__(15);
+	    __webpack_require__(16);
+	    __webpack_require__(17);
+	    __webpack_require__(18);
+	    __webpack_require__(19);
 
 	    __weex_module__.exports = {
 	        data:function () {return {
@@ -242,7 +242,20 @@
 	},undefined)
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/tabbar", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -398,7 +411,7 @@
 	})
 
 /***/ },
-/* 2 */
+/* 15 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/search", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -441,7 +454,7 @@
 	})
 
 /***/ },
-/* 3 */
+/* 16 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/hr", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -465,7 +478,7 @@
 	})
 
 /***/ },
-/* 4 */
+/* 17 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -618,7 +631,7 @@
 	})
 
 /***/ },
-/* 5 */
+/* 18 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/hot-recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -701,8 +714,7 @@
 	  "row": {
 	    "flexDirection": "row",
 	    "height": 310,
-	    "marginTop": 5,
-	    "//height": 800
+	    "marginTop": 5
 	  },
 	  "title": {
 	    "fontSize": 24,
@@ -722,7 +734,7 @@
 	})
 
 /***/ },
-/* 6 */
+/* 19 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/category", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -746,6 +758,42 @@
 	                 return texts;
 	               }
 	           }
+	        },
+	        methods: {
+	            gotoList: function(e){
+	                var obj = e.target.attr;
+	                var title = obj.title;
+	                var type = this._getType(title);
+	                //加载列表
+	                var url = './index.html?page='+ './dist/list.js&type=' + type + '&title=' + title;
+	                var navigator = __weex_require__('@weex-module/navigator');
+	                var params = {
+	                    'url': url,
+	                    'animated' : 'true',
+	                }
+	                navigator.push(params, function(e) {});
+	            },
+
+	            _getType: function(title){
+	                var type = 'it';
+	                switch(title){
+	                    case '互联网':
+	                        type = 'it';
+	                        break;
+	                    case '散文':
+	                        type = 'sanwen';
+	                        break;
+	                    case '笑话':
+	                        type = 'cookies';
+	                        break;
+	                    case '管理':
+	                        type = 'manager';
+	                        break;
+	                    default:
+	                        break;
+	                }
+	                return type;
+	            }
 	        }
 
 	    };
@@ -764,6 +812,12 @@
 	        "center",
 	        "border"
 	      ],
+	      "events": {
+	        "click": "gotoList"
+	      },
+	      "attr": {
+	        "title": function () {return this.texts[0]}
+	      },
 	      "children": [
 	        {
 	          "type": "text",
@@ -783,6 +837,12 @@
 	        "center",
 	        "border"
 	      ],
+	      "events": {
+	        "click": "gotoList"
+	      },
+	      "attr": {
+	        "title": function () {return this.texts[1]}
+	      },
 	      "children": [
 	        {
 	          "type": "text",

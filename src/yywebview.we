@@ -1,5 +1,5 @@
 <template>
-    <wxc-navpage class="nav"  title="{{title}}" background-color="#FFF" left-item-title="阅读" left-item-src="http://o94apbmjs.bkt.clouddn.com/left_icon3.png">
+    <wxc-navpage  title="{{title}}" background-color="#FFF" left-item-title="阅读" left-item-src="http://o94apbmjs.bkt.clouddn.com/left_icon3.png">
         <web src="{{src}}" style="height:{{height}};" onpagestart="pagestart" onpagefinish="pagefinish" onerror="error"></web>
     </wxc-navpage>
 </template>

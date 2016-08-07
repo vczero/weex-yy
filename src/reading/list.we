@@ -1,0 +1,125 @@
+<template>
+    <wxc-navpage title="{{title}}" background-color="#FFF" left-item-title="阅读" left-item-src="http://o94apbmjs.bkt.clouddn.com/left_icon3.png">
+         <scroller style="margin-top:10;">
+            <div repeat="{{list}}" style="height:120;" onclick="gotoPage" title="{{title}}" url="{{url}}">
+                <div class="row">
+                    <div>
+                        <image class="img" src="{{img}}" resize="cover"></image>
+                    </div>
+                    <div>
+                        <text class="title">
+                            {{title}}
+                        </text>
+                        <text class="time">
+                             {{time.substring(0,10)}}
+                        </text>
+                    <div>
+                </div>
+            </div>
+           </scroller>
+    </wxc-navpage>
+</template>
+
+<style>
+    .row{
+        flex-direction: row;
+    }
+
+    .img{
+        width:100;
+        height:100;
+        margin-left:10;
+        margin-right:10;
+        border-radius:4;
+    }
+
+    .title{
+        font-size:26;
+        lines:1;
+        text-overflow: ellipsis;
+        margin-right:10;
+        margin-top:5;
+    }
+
+    .time{
+        font-size:22;
+        lines:1;
+        text-overflow: ellipsis;
+        color:#4C4C4C;
+        margin-top:10;
+    }
+</style>
+<script>
+    require('./../components-add/wxc-navpage.we');
+    //<tabbar></tabbar>
+    //require('./../components-add/tabbar.we');
+    module.exports = {
+        data: {
+            list: [],
+            title: ''
+        },
+
+        created: function(){
+            var url = this.$getConfig().bundleUrl;
+            this.title = decodeURIComponent(this._getUrlParam(url, 'title'));
+            var type = this._getUrlParam(url, 'type');
+            this._getData(type);
+
+            this.$on('naviBar.leftItem.click',function(e){
+                //pop back
+                var params = {
+                    'animated' : 'true',
+                }
+                var navigator = require('@weex-module/navigator');
+                navigator.pop(params, function(e) {});
+            });
+        },
+
+        methods: {
+            _getData: function(type){
+                var that = this;
+                var stream = require('@weex-module/stream');
+                var url = 'http://123.57.39.116:3000/data/read?type=' + type;
+                stream.fetch({
+                  method: 'GET',
+                  url: url,
+                  type:'json'
+                }, function(response) {
+                    if(response.status == 200){
+                      var data = response.data;
+                      if(data.status){
+                        var obj = data.data;
+                        that.list = obj;
+                      }else{
+                       //TODO:
+                      }
+                    }else{
+                        //TODO:错误处理
+                    }
+                },function(err){
+                    //console.log(err);
+                    //TODO:错误处理
+                });
+
+            },
+            _getUrlParam: function(url, key){
+                var reg = new RegExp('[?|&]' + key + '=([^&]+)');
+                var match = url.match(reg);
+                return match && match[1];
+            },
+
+            gotoPage: function(e){
+                var obj = e.target.attr;
+                var url = obj.url;
+                var title = obj.title;
+                var path = './index.html?page='+ './dist/yywebview.js&weixin_title=' + title + '&weixin_url=' + url;
+                var navigator = require('@weex-module/navigator');
+                var params = {
+                    'url': path,
+                    'animated' : 'true',
+                }
+                navigator.push(params, function(e) {});
+            }
+        }
+    };
+</script>
