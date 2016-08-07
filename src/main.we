@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  require('weex-components');
+  require('./components-add/wxc-tabbar.we');
   var selectedColor = '#808080';
   var unselectedColor = '#808080';
   module.exports = {
