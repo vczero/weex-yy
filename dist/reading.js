@@ -44,20 +44,15 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	;__weex_define__("@weex-component/8d8fe9bebe83081e8427e7997b2c9b8e", [], function(__weex_require__, __weex_exports__, __weex_module__){
-
-
-
-
-
+	;__weex_define__("@weex-component/d1941be05959f607dc6e9c5880be36b1", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
 	    __webpack_require__(1);
+	    __webpack_require__(2);
 	    __webpack_require__(3);
 	    __webpack_require__(4);
 	    __webpack_require__(5);
 	    __webpack_require__(6);
-	    __webpack_require__(7);
 
 	    __weex_module__.exports = {
 	        data:function () {return {
@@ -242,18 +237,17 @@
 	  }
 	})
 	})
-	;__weex_bootstrap__("@weex-component/8d8fe9bebe83081e8427e7997b2c9b8e", {
+	;__weex_bootstrap__("@weex-component/d1941be05959f607dc6e9c5880be36b1", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/tabbar", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
-	    __webpack_require__(2);
 	    __weex_module__.exports = {
 	        data:function () {return {
 	            tabItems: [
@@ -407,106 +401,6 @@
 /* 2 */
 /***/ function(module, exports) {
 
-	;__weex_define__("@weex-component/wxc-tabitem", [], function(__weex_require__, __weex_exports__, __weex_module__){
-
-	;
-	    __weex_module__.exports = {
-	        data: function () {return {
-	          index: 0,
-	          title: '',
-	          titleColor: '#000000',
-	          icon: '',
-	          backgroundColor: '#ffffff',
-	        }},
-	        methods: {
-	          onclickitem: function (e) {
-	            var vm = this;
-	            var params = {
-	              index: vm.index
-	            };
-	            vm.$dispatch('tabItem.onClick', params);
-	          }
-	        }
-	    }
-
-	;__weex_module__.exports.template = __weex_module__.exports.template || {}
-	;Object.assign(__weex_module__.exports.template, {
-	  "type": "div",
-	  "classList": [
-	    "container"
-	  ],
-	  "style": {
-	    "backgroundColor": function () {return this.backgroundColor}
-	  },
-	  "events": {
-	    "click": "onclickitem"
-	  },
-	  "children": [
-	    {
-	      "type": "image",
-	      "classList": [
-	        "top-line"
-	      ],
-	      "attr": {
-	        "src": "http://gtms03.alicdn.com/tps/i3/TB1mdsiMpXXXXXpXXXXNw4JIXXX-640-4.png"
-	      }
-	    },
-	    {
-	      "type": "image",
-	      "classList": [
-	        "tab-icon"
-	      ],
-	      "attr": {
-	        "src": function () {return this.icon}
-	      }
-	    },
-	    {
-	      "type": "text",
-	      "classList": [
-	        "tab-text"
-	      ],
-	      "style": {
-	        "color": function () {return this.titleColor}
-	      },
-	      "attr": {
-	        "value": function () {return this.title}
-	      }
-	    }
-	  ]
-	})
-	;__weex_module__.exports.style = __weex_module__.exports.style || {}
-	;Object.assign(__weex_module__.exports.style, {
-	  "container": {
-	    "flex": 1,
-	    "flexDirection": "column",
-	    "alignItems": "center",
-	    "justifyContent": "center",
-	    "height": 100
-	  },
-	  "top-line": {
-	    "position": "absolute",
-	    "top": 0,
-	    "left": 0,
-	    "right": 0,
-	    "height": 2
-	  },
-	  "tab-icon": {
-	    "marginTop": 5,
-	    "width": 55,
-	    "height": 55
-	  },
-	  "tab-text": {
-	    "marginTop": 10,
-	    "textAlign": "center",
-	    "fontSize": 20
-	  }
-	})
-	})
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
 	;__weex_define__("@weex-component/search", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;__weex_module__.exports.template = __weex_module__.exports.template || {}
@@ -547,7 +441,7 @@
 	})
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/hr", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -571,7 +465,7 @@
 	})
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -724,7 +618,7 @@
 	})
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/hot-recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -828,7 +722,7 @@
 	})
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/category", [], function(__weex_require__, __weex_exports__, __weex_module__){

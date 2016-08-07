@@ -52,11 +52,11 @@
 
 <script>
     require('./components-add/tabbar.we');
-    require('./search.we');
-    require('./hr.we');
-    require('./recommend.we');
-    require('./hot-recommend.we');
-    require('./category.we');
+    require('./reading/search.we');
+    require('./reading/hr.we');
+    require('./reading/recommend.we');
+    require('./reading/hot-recommend.we');
+    require('./reading/category.we');
 
     module.exports = {
         data:{

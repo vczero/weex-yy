@@ -76,12 +76,11 @@
 
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/tabbar", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
-	    __webpack_require__(2);
 	    __weex_module__.exports = {
 	        data:function () {return {
 	            tabItems: [
@@ -227,106 +226,6 @@
 	    "left": 0,
 	    "right": 0,
 	    "height": 110
-	  }
-	})
-	})
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	;__weex_define__("@weex-component/wxc-tabitem", [], function(__weex_require__, __weex_exports__, __weex_module__){
-
-	;
-	    __weex_module__.exports = {
-	        data: function () {return {
-	          index: 0,
-	          title: '',
-	          titleColor: '#000000',
-	          icon: '',
-	          backgroundColor: '#ffffff',
-	        }},
-	        methods: {
-	          onclickitem: function (e) {
-	            var vm = this;
-	            var params = {
-	              index: vm.index
-	            };
-	            vm.$dispatch('tabItem.onClick', params);
-	          }
-	        }
-	    }
-
-	;__weex_module__.exports.template = __weex_module__.exports.template || {}
-	;Object.assign(__weex_module__.exports.template, {
-	  "type": "div",
-	  "classList": [
-	    "container"
-	  ],
-	  "style": {
-	    "backgroundColor": function () {return this.backgroundColor}
-	  },
-	  "events": {
-	    "click": "onclickitem"
-	  },
-	  "children": [
-	    {
-	      "type": "image",
-	      "classList": [
-	        "top-line"
-	      ],
-	      "attr": {
-	        "src": "http://gtms03.alicdn.com/tps/i3/TB1mdsiMpXXXXXpXXXXNw4JIXXX-640-4.png"
-	      }
-	    },
-	    {
-	      "type": "image",
-	      "classList": [
-	        "tab-icon"
-	      ],
-	      "attr": {
-	        "src": function () {return this.icon}
-	      }
-	    },
-	    {
-	      "type": "text",
-	      "classList": [
-	        "tab-text"
-	      ],
-	      "style": {
-	        "color": function () {return this.titleColor}
-	      },
-	      "attr": {
-	        "value": function () {return this.title}
-	      }
-	    }
-	  ]
-	})
-	;__weex_module__.exports.style = __weex_module__.exports.style || {}
-	;Object.assign(__weex_module__.exports.style, {
-	  "container": {
-	    "flex": 1,
-	    "flexDirection": "column",
-	    "alignItems": "center",
-	    "justifyContent": "center",
-	    "height": 100
-	  },
-	  "top-line": {
-	    "position": "absolute",
-	    "top": 0,
-	    "left": 0,
-	    "right": 0,
-	    "height": 2
-	  },
-	  "tab-icon": {
-	    "marginTop": 5,
-	    "width": 55,
-	    "height": 55
-	  },
-	  "tab-text": {
-	    "marginTop": 10,
-	    "textAlign": "center",
-	    "fontSize": 20
 	  }
 	})
 	})

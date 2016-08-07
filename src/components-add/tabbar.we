@@ -47,7 +47,6 @@
 </style>
 
 <script>
-    require('./wxc-tabitem.we');
     module.exports = {
         data:{
             tabItems: [
