@@ -20,7 +20,6 @@
             src: '',
             title: '测试页面'
         },
-
         created: function(){
             var config  = this.$getConfig();
             this.width = config.env.deviceWidth;
@@ -28,6 +27,15 @@
             var url = config.bundleUrl;
             this.src = this._getUrl(url, 'weixin_url');
             this.title = decodeURIComponent(this._getUrlParam(url, 'weixin_title'));
+
+            this.$on('naviBar.leftItem.click',function(e){
+                //pop back
+                var params = {
+                    'animated' : 'true',
+                }
+                var navigator = require('@weex-module/navigator');
+                navigator.pop(params, function(e) {});
+            });
         },
 
         methods: {
