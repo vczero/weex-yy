@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	;__weex_define__("@weex-component/a226d1182c5ea9dcf649e4a839147185", [], function(__weex_require__, __weex_exports__, __weex_module__){
+	;__weex_define__("@weex-component/8d8fe9bebe83081e8427e7997b2c9b8e", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 
 
@@ -52,12 +52,13 @@
 
 
 	;
+	    __webpack_require__(1);
 	    __webpack_require__(3);
 	    __webpack_require__(4);
 	    __webpack_require__(5);
 	    __webpack_require__(6);
 	    __webpack_require__(7);
-	    //require('weex-components');
+
 	    __weex_module__.exports = {
 	        data:function () {return {
 	         width: 0,
@@ -121,102 +122,97 @@
 	    {
 	      "type": "scroller",
 	      "classList": [
-	        "container"
+	        "scroller"
 	      ],
 	      "children": [
 	        {
-	          "type": "div",
+	          "type": "recommend",
+	          "attr": {
+	            "recommend": function () {return this.recommendTopic}
+	          }
+	        },
+	        {
+	          "type": "hr"
+	        },
+	        {
+	          "type": "text",
 	          "classList": [
-	            "container"
+	            "title-big"
 	          ],
-	          "children": [
-	            {
-	              "type": "recommend",
-	              "attr": {
-	                "recommend": function () {return this.recommendTopic}
-	              }
-	            },
-	            {
-	              "type": "hr"
-	            },
-	            {
-	              "type": "text",
-	              "classList": [
-	                "title-big"
-	              ],
-	              "attr": {
-	                "value": "热门推荐"
-	              }
-	            },
-	            {
-	              "type": "hot-recommend",
-	              "attr": {
-	                "hotRecommend": function () {return this.hotRecommend1}
-	              }
-	            },
-	            {
-	              "type": "hot-recommend",
-	              "attr": {
-	                "hotRecommend": function () {return this.hotRecommend2}
-	              }
-	            },
-	            {
-	              "type": "hr"
-	            },
-	            {
-	              "type": "text",
-	              "classList": [
-	                "title-big"
-	              ],
-	              "attr": {
-	                "value": "专题分类"
-	              }
-	            },
-	            {
-	              "type": "category",
-	              "attr": {
-	                "list": function () {return this.category1}
-	              }
-	            },
-	            {
-	              "type": "category",
-	              "attr": {
-	                "list": function () {return this.category2}
-	              }
-	            },
-	            {
-	              "type": "hr"
-	            },
-	            {
-	              "type": "text",
-	              "classList": [
-	                "title-big"
-	              ],
-	              "attr": {
-	                "value": "轻松一刻"
-	              }
-	            },
-	            {
-	              "type": "hot-recommend",
-	              "attr": {
-	                "hotRecommend": function () {return this.cookies1}
-	              }
-	            },
-	            {
-	              "type": "hot-recommend",
-	              "attr": {
-	                "hotRecommend": function () {return this.cookies2}
-	              }
-	            },
-	            {
-	              "type": "div",
-	              "style": {
-	                "height": 50
-	              }
-	            }
-	          ]
+	          "attr": {
+	            "value": "热门推荐"
+	          }
+	        },
+	        {
+	          "type": "hot-recommend",
+	          "attr": {
+	            "hotRecommend": function () {return this.hotRecommend1}
+	          }
+	        },
+	        {
+	          "type": "hot-recommend",
+	          "attr": {
+	            "hotRecommend": function () {return this.hotRecommend2}
+	          }
+	        },
+	        {
+	          "type": "hr"
+	        },
+	        {
+	          "type": "text",
+	          "classList": [
+	            "title-big"
+	          ],
+	          "attr": {
+	            "value": "专题分类"
+	          }
+	        },
+	        {
+	          "type": "category",
+	          "attr": {
+	            "list": function () {return this.category1}
+	          }
+	        },
+	        {
+	          "type": "category",
+	          "attr": {
+	            "list": function () {return this.category2}
+	          }
+	        },
+	        {
+	          "type": "hr"
+	        },
+	        {
+	          "type": "text",
+	          "classList": [
+	            "title-big"
+	          ],
+	          "attr": {
+	            "value": "轻松一刻"
+	          }
+	        },
+	        {
+	          "type": "hot-recommend",
+	          "attr": {
+	            "hotRecommend": function () {return this.cookies1}
+	          }
+	        },
+	        {
+	          "type": "hot-recommend",
+	          "attr": {
+	            "hotRecommend": function () {return this.cookies2}
+	          }
+	        },
+	        {
+	          "type": "div",
+	          "style": {
+	            "height": 50
+	          }
 	        }
 	      ]
+	    },
+	    {
+	      "type": "tabbar"
 	    }
 	  ]
 	})
@@ -229,17 +225,285 @@
 	    "marginBottom": 10
 	  },
 	  "container": {
-	    "flex": 1
+	    "position": "absolute",
+	    "top": 0,
+	    "left": 0,
+	    "right": 0,
+	    "bottom": 0,
+	    "marginTop": 0,
+	    "marginBottom": 88
+	  },
+	  "scroller": {
+	    "position": "absolute",
+	    "top": 140,
+	    "left": 0,
+	    "right": 0,
+	    "bottom": 88
 	  }
 	})
 	})
-	;__weex_bootstrap__("@weex-component/a226d1182c5ea9dcf649e4a839147185", {
+	;__weex_bootstrap__("@weex-component/8d8fe9bebe83081e8427e7997b2c9b8e", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 
 /***/ },
-/* 1 */,
-/* 2 */,
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	;__weex_define__("@weex-component/tabbar", [], function(__weex_require__, __weex_exports__, __weex_module__){
+
+	;
+	    __webpack_require__(2);
+	    __weex_module__.exports = {
+	        data:function () {return {
+	            tabItems: [
+	              {
+	                index: 0,
+	                title: '首页',
+	                icon: 'http://o94apbmjs.bkt.clouddn.com/11.png',
+	                src: 'main.js',
+	                visibility: 'visible'
+	              },
+	              {
+	                index: 1,
+	                title: '阅读',
+	                icon: 'http://o94apbmjs.bkt.clouddn.com/23.png',
+	                src: 'reading.js',
+	                visibility: 'hidden',
+	              },
+	              {
+	                index: 2,
+	                title: '反馈',
+	                icon: 'http://o94apbmjs.bkt.clouddn.com/17.png',
+	                src: 'post.js',
+	                visibility: 'hidden',
+	              },
+	              {
+	                index: 3,
+	                title: '设置',
+	                icon: 'http://o94apbmjs.bkt.clouddn.com/setting.png',
+	                src: 'setting.js',
+	                visibility: 'hidden',
+	              }
+	            ]
+	        }},
+	        methods: {
+	            onclickitem: function(e){
+	                var obj =  e.target.attr;
+	                var url = './index.html?page=./dist/' + obj.src;
+	                var navigator = __weex_require__('@weex-module/navigator');
+	                var params = {
+	                    url: url,
+	                    animated : 'true',
+	                }
+	                navigator.push(params, function(e) {});
+	            }
+	        }
+	    }
+
+	;__weex_module__.exports.template = __weex_module__.exports.template || {}
+	;Object.assign(__weex_module__.exports.template, {
+	  "type": "div",
+	  "classList": [
+	    "tabbar"
+	  ],
+	  "children": [
+	    {
+	      "type": "div",
+	      "repeat": function () {return this.tabItems},
+	      "attr": {
+	        "src": function () {return this.src}
+	      },
+	      "style": {
+	        "flex": 1
+	      },
+	      "events": {
+	        "click": "onclickitem"
+	      },
+	      "children": [
+	        {
+	          "type": "div",
+	          "classList": [
+	            "container"
+	          ],
+	          "style": {
+	            "backgroundColor": "#ffffff"
+	          },
+	          "children": [
+	            {
+	              "type": "image",
+	              "classList": [
+	                "top-line"
+	              ],
+	              "attr": {
+	                "src": "http://gtms03.alicdn.com/tps/i3/TB1mdsiMpXXXXXpXXXXNw4JIXXX-640-4.png"
+	              }
+	            },
+	            {
+	              "type": "image",
+	              "classList": [
+	                "tab-icon"
+	              ],
+	              "attr": {
+	                "src": function () {return this.icon}
+	              }
+	            },
+	            {
+	              "type": "text",
+	              "classList": [
+	                "tab-text"
+	              ],
+	              "style": {
+	                "color": "#000000"
+	              },
+	              "attr": {
+	                "value": function () {return this.title}
+	              }
+	            }
+	          ]
+	        }
+	      ]
+	    }
+	  ]
+	})
+	;__weex_module__.exports.style = __weex_module__.exports.style || {}
+	;Object.assign(__weex_module__.exports.style, {
+	  "container": {
+	    "flex": 1,
+	    "flexDirection": "column",
+	    "alignItems": "center",
+	    "justifyContent": "center",
+	    "height": 100
+	  },
+	  "top-line": {
+	    "position": "absolute",
+	    "top": 0,
+	    "left": 0,
+	    "right": 0,
+	    "height": 2
+	  },
+	  "tab-icon": {
+	    "marginTop": 5,
+	    "width": 55,
+	    "height": 55
+	  },
+	  "tab-text": {
+	    "marginTop": 10,
+	    "textAlign": "center",
+	    "fontSize": 20
+	  },
+	  "tabbar": {
+	    "flexDirection": "row",
+	    "position": "fixed",
+	    "bottom": 0,
+	    "left": 0,
+	    "right": 0,
+	    "height": 110
+	  }
+	})
+	})
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	;__weex_define__("@weex-component/wxc-tabitem", [], function(__weex_require__, __weex_exports__, __weex_module__){
+
+	;
+	    __weex_module__.exports = {
+	        data: function () {return {
+	          index: 0,
+	          title: '',
+	          titleColor: '#000000',
+	          icon: '',
+	          backgroundColor: '#ffffff',
+	        }},
+	        methods: {
+	          onclickitem: function (e) {
+	            var vm = this;
+	            var params = {
+	              index: vm.index
+	            };
+	            vm.$dispatch('tabItem.onClick', params);
+	          }
+	        }
+	    }
+
+	;__weex_module__.exports.template = __weex_module__.exports.template || {}
+	;Object.assign(__weex_module__.exports.template, {
+	  "type": "div",
+	  "classList": [
+	    "container"
+	  ],
+	  "style": {
+	    "backgroundColor": function () {return this.backgroundColor}
+	  },
+	  "events": {
+	    "click": "onclickitem"
+	  },
+	  "children": [
+	    {
+	      "type": "image",
+	      "classList": [
+	        "top-line"
+	      ],
+	      "attr": {
+	        "src": "http://gtms03.alicdn.com/tps/i3/TB1mdsiMpXXXXXpXXXXNw4JIXXX-640-4.png"
+	      }
+	    },
+	    {
+	      "type": "image",
+	      "classList": [
+	        "tab-icon"
+	      ],
+	      "attr": {
+	        "src": function () {return this.icon}
+	      }
+	    },
+	    {
+	      "type": "text",
+	      "classList": [
+	        "tab-text"
+	      ],
+	      "style": {
+	        "color": function () {return this.titleColor}
+	      },
+	      "attr": {
+	        "value": function () {return this.title}
+	      }
+	    }
+	  ]
+	})
+	;__weex_module__.exports.style = __weex_module__.exports.style || {}
+	;Object.assign(__weex_module__.exports.style, {
+	  "container": {
+	    "flex": 1,
+	    "flexDirection": "column",
+	    "alignItems": "center",
+	    "justifyContent": "center",
+	    "height": 100
+	  },
+	  "top-line": {
+	    "position": "absolute",
+	    "top": 0,
+	    "left": 0,
+	    "right": 0,
+	    "height": 2
+	  },
+	  "tab-icon": {
+	    "marginTop": 5,
+	    "width": 55,
+	    "height": 55
+	  },
+	  "tab-text": {
+	    "marginTop": 10,
+	    "textAlign": "center",
+	    "fontSize": 20
+	  }
+	})
+	})
+
+/***/ },
 /* 3 */
 /***/ function(module, exports) {
 
@@ -291,13 +555,8 @@
 	;__weex_module__.exports.template = __weex_module__.exports.template || {}
 	;Object.assign(__weex_module__.exports.template, {
 	  "type": "div",
-	  "children": [
-	    {
-	      "type": "div",
-	      "classList": [
-	        "hr"
-	      ]
-	    }
+	  "classList": [
+	    "hr"
 	  ]
 	})
 	;__weex_module__.exports.style = __weex_module__.exports.style || {}
@@ -548,7 +807,8 @@
 	  "row": {
 	    "flexDirection": "row",
 	    "height": 310,
-	    "marginTop": 5
+	    "marginTop": 5,
+	    "//height": 800
 	  },
 	  "title": {
 	    "fontSize": 24,

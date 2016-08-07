@@ -12,6 +12,7 @@
         flex-direction: row;
         height: 310;
         margin-top:5;
+        //height:800;
     }
     .title{
         font-size:24;

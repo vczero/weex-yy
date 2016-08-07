@@ -9,7 +9,7 @@ module.exports = {
     reading: path.join(__dirname, 'src', 'reading.we?entry=true'),
     post: path.join(__dirname, 'src', 'post.we?entry=true'),
     setting: path.join(__dirname, 'src', 'setting.we?entry=true'),
-    home: path.join(__dirname, 'src', 'home.we?entry=true'),
+    //home: path.join(__dirname, 'src', 'home.we?entry=true'),
     yywebview: path.join(__dirname, 'src', 'yywebview.we?entry=true')
   },
   output: {

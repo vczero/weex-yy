@@ -1,29 +1,27 @@
 <template>
   <div>
       <search></search>
-          <hr></hr>
-          <scroller class="container">
-           <div class="container">
-             <recommend recommend="{{recommendTopic}}"></recommend>
+      <hr></hr>
+      <scroller class="scroller">
+         <recommend recommend="{{recommendTopic}}"></recommend>
+         <hr></hr>
+         <text class="title-big">热门推荐</text>
+         <hot-recommend hot-recommend="{{hotRecommend1}}"></hot-recommend>
+         <hot-recommend hot-recommend="{{hotRecommend2}}"></hot-recommend>
 
-             <hr></hr>
-             <text class="title-big">热门推荐</text>
-             <hot-recommend hot-recommend="{{hotRecommend1}}"></hot-recommend>
-             <hot-recommend hot-recommend="{{hotRecommend2}}"></hot-recommend>
+         <hr></hr>
+         <text class="title-big">专题分类</text>
+         <category list="{{category1}}"></category>
+         <category list="{{category2}}"></category>
 
-             <hr></hr>
-             <text class="title-big">专题分类</text>
-             <category list="{{category1}}"></category>
-             <category list="{{category2}}"></category>
+         <hr></hr>
+         <text class="title-big">轻松一刻</text>
+         <hot-recommend hot-recommend="{{cookies1}}"></hot-recommend>
+         <hot-recommend hot-recommend="{{cookies2}}"></hot-recommend>
 
-             <hr></hr>
-             <text class="title-big">轻松一刻</text>
-             <hot-recommend hot-recommend="{{cookies1}}"></hot-recommend>
-             <hot-recommend hot-recommend="{{cookies2}}"></hot-recommend>
-
-             <div style="height:50"></div>
-           </div>
+         <div style="height:50;"></div>
       </scroller>
+      <tabbar></tabbar>
   </div>
 </template>
 
@@ -35,18 +33,31 @@
        margin-left:10;
        margin-bottom:10;
     }
-    .container{
-        flex: 1
+    .container {
+        position: absolute;
+        top: 0; left: 0;
+        right: 0;
+        bottom: 0;
+        margin-top: 0;
+        margin-bottom: 88;
+    }
+    .scroller{
+        position: absolute;
+        top: 140;
+        left: 0;
+        right: 0;
+        bottom: 88;
     }
 </style>
 
 <script>
+    require('./components-add/tabbar.we');
     require('./search.we');
     require('./hr.we');
     require('./recommend.we');
     require('./hot-recommend.we');
     require('./category.we');
-    //require('weex-components');
+
     module.exports = {
         data:{
          width: 0,
