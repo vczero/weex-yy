@@ -27,7 +27,7 @@
 
 <style>
     .title-big{
-       font-size:30;
+       font-size:32;
        font-weight:200;
        color:#444444;
        margin-left:10;

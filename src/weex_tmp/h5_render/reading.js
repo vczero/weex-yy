@@ -47,12 +47,12 @@
 	;__weex_define__("@weex-component/87f3be8bcf053edb85fe0b466f7247df", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
+	    __webpack_require__(1);
+	    __webpack_require__(2);
 	    __webpack_require__(3);
 	    __webpack_require__(4);
 	    __webpack_require__(5);
 	    __webpack_require__(6);
-	    __webpack_require__(7);
-	    __webpack_require__(8);
 
 	    __weex_module__.exports = {
 	        data:function () {return {
@@ -242,9 +242,7 @@
 	},undefined)
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
+/* 1 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/tabbar", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -400,7 +398,7 @@
 	})
 
 /***/ },
-/* 4 */
+/* 2 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/search", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -443,7 +441,7 @@
 	})
 
 /***/ },
-/* 5 */
+/* 3 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/hr", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -467,7 +465,7 @@
 	})
 
 /***/ },
-/* 6 */
+/* 4 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -620,7 +618,7 @@
 	})
 
 /***/ },
-/* 7 */
+/* 5 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/hot-recommend", [], function(__weex_require__, __weex_exports__, __weex_module__){
@@ -730,7 +728,7 @@
 	})
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports) {
 
 	;__weex_define__("@weex-component/category", [], function(__weex_require__, __weex_exports__, __weex_module__){

@@ -40,7 +40,7 @@
 
     .title{
         font-weight:300;
-        font-size:28;
+        font-size:29;
         color:#2A2C28;
     }
 </style>

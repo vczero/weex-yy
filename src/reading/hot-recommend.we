@@ -2,7 +2,7 @@
     <div class="row">
         <div style="flex:1;" class="item" url="{{url}}" title="{{title}}"  repeat="{{hotRecommend}}" onclick="openWebPage">
             <image class="img" src="{{img}}" style="width:{{width}};" resize="cover"></image>
-            <text class="title">{{title}}</text>
+            <text class="title" style="width:{{width}};">{{title}}</text>
         </div>
     </dvi>
 </template>
@@ -12,15 +12,16 @@
         flex-direction: row;
         height: 310;
         margin-top:5;
+        margin-right:10;
     }
     .title{
-        font-size:24;
+        font-size:26;
         font-weight:300;
         margin-top:5;
         color:#414141;
-        lines: 3;
-        height:60;
+        lines: 2;
         text-overflow:ellipsis;
+        height:80;
     }
 
     .img{

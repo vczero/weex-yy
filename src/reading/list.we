@@ -3,10 +3,10 @@
          <scroller style="margin-top:10;">
             <div repeat="{{list}}" style="height:120;" onclick="gotoPage" title="{{title}}" url="{{url}}">
                 <div class="row">
-                    <div>
+                    <div class="img_view">
                         <image class="img" src="{{img}}" resize="cover"></image>
                     </div>
-                    <div>
+                    <div style="flex:1;">
                         <text class="title">
                             {{title}}
                         </text>
@@ -25,6 +25,11 @@
         flex-direction: row;
     }
 
+    .img_view{
+        width:120;
+        height:100;
+    }
+
     .img{
         width:100;
         height:100;
@@ -38,7 +43,7 @@
         lines:1;
         text-overflow: ellipsis;
         margin-right:10;
-        margin-top:5;
+        margin-top:10;
     }
 
     .time{

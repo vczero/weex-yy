@@ -31,9 +31,13 @@
         position: absolute; 
         bottom: 28; 
         left :68;
-        text-align :left;  
+        top:20;
+        height: 50;
+        text-align:left;
         font-size: 32; 
         font-family: 'Open Sans', sans-serif;
+        text-align:center;
+        line-height:50;
     }
     .center-text {
         position: absolute; 
@@ -51,6 +55,7 @@
         position: absolute; 
         bottom: 20; 
         left: 20;
+        top:20;
         width: 50; 
         height: 50;
     }
