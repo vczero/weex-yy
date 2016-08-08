@@ -17,7 +17,7 @@
         right: 0; 
         width: 750;
         border-bottom-width:1;
-        border-bottom-color: #7E7F7E;
+        border-bottom-color: #E0E0E0;
     }
     .right-text {
         position: absolute; 

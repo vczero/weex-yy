@@ -1,7 +1,7 @@
 <template>
     <wxc-navpage title="{{title}}" background-color="#FFF" left-item-title="阅读" left-item-src="http://o94apbmjs.bkt.clouddn.com/left_icon3.png">
          <scroller style="margin-top:10;">
-            <div repeat="{{list}}" style="height:120;" onclick="gotoPage" title="{{title}}" url="{{url}}">
+            <div repeat="{{list}}" class="row-item" onclick="gotoPage" title="{{title}}" url="{{url}}">
                 <div class="row">
                     <div class="img_view">
                         <image class="img" src="{{img}}" resize="cover"></image>
@@ -25,21 +25,28 @@
         flex-direction: row;
     }
 
+    .row-item{
+        height:150;
+        border-bottom-width:1;
+        border-bottom-color:#E0E0E0;
+    }
+
     .img_view{
-        width:120;
-        height:100;
+        width:150;
+        height:150;
     }
 
     .img{
-        width:100;
-        height:100;
+        width:130;
+        height:130;
         margin-left:10;
         margin-right:10;
+        margin-top:10;
         border-radius:4;
     }
 
     .title{
-        font-size:26;
+        font-size:30;
         lines:1;
         text-overflow: ellipsis;
         margin-right:10;
@@ -47,7 +54,7 @@
     }
 
     .time{
-        font-size:22;
+        font-size:27;
         lines:1;
         text-overflow: ellipsis;
         color:#4C4C4C;
