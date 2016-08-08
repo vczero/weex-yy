@@ -1,5 +1,5 @@
 <template>
-    <wxc-navpage title="{{title}}" background-color="#FFF" left-item-title="阅读" left-item-src="http://o94apbmjs.bkt.clouddn.com/left_icon3.png">
+    <wxc-navpage title="{{title}}" background-color="#fff" left-item-title="阅读" left-item-src="http://o94apbmjs.bkt.clouddn.com/left_icon3.png">
          <scroller style="margin-top:10;">
             <div repeat="{{list}}" class="row-item" onclick="gotoPage" title="{{title}}" url="{{url}}">
                 <div class="row">
