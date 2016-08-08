@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	;__weex_define__("@weex-component/87f3be8bcf053edb85fe0b466f7247df", [], function(__weex_require__, __weex_exports__, __weex_module__){
+	;__weex_define__("@weex-component/bbe7eb7a8c55e05b6fb9833cb66debaf", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
 	;
 	    __webpack_require__(3);
@@ -53,6 +53,12 @@
 	    __webpack_require__(6);
 	    __webpack_require__(7);
 	    __webpack_require__(8);
+
+	    var utils = __webpack_require__(23)
+	    var obj1 = {a: 1}
+	    var obj2 = {b: 2}
+	    utils.extend(obj1, obj2)
+	    console.log('---测试util----',obj1);
 
 	    __weex_module__.exports = {
 	        data:function () {return {
@@ -237,7 +243,7 @@
 	  }
 	})
 	})
-	;__weex_bootstrap__("@weex-component/87f3be8bcf053edb85fe0b466f7247df", {
+	;__weex_bootstrap__("@weex-component/bbe7eb7a8c55e05b6fb9833cb66debaf", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 
@@ -888,6 +894,33 @@
 	  }
 	})
 	})
+
+/***/ },
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */
+/***/ function(module, exports) {
+
+	function extend(dest, src) {
+	  for (var key in src) {
+	    dest[key] = src[key]
+	  }
+	}
+
+
+	exports.extend = extend
 
 /***/ }
 /******/ ]);

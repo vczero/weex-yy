@@ -58,6 +58,12 @@
     require('./reading/hot-recommend.we');
     require('./reading/category.we');
 
+    var utils = require('./../example/utils')
+    var obj1 = {a: 1}
+    var obj2 = {b: 2}
+    utils.extend(obj1, obj2)
+    console.log('---测试util----',obj1);
+
     module.exports = {
         data:{
          width: 0,

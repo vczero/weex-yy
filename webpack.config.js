@@ -14,6 +14,9 @@ module.exports = {
     //其他页面
     yywebview: path.join(__dirname, 'src', 'yywebview.we?entry=true'),
     list: path.join(__dirname, 'src', 'reading/list.we?entry=true'),
+
+    //测试页面
+    web: path.join(__dirname, 'example', 'web.we?entry=true')
   },
   output: {
     path: 'dist',
