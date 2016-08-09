@@ -49,47 +49,92 @@
 <script>
     module.exports = {
         data:{
+            dir: 'examples',
+            baseURL: '',
             tabItems: [
               {
                 index: 0,
                 title: '首页',
                 icon: 'http://o94apbmjs.bkt.clouddn.com/11.png',
-                src: 'main.js',
-                visibility: 'visible'
+                src: 'reading.js'
               },
               {
                 index: 1,
                 title: '阅读',
                 icon: 'http://o94apbmjs.bkt.clouddn.com/23.png',
-                src: 'reading.js',
-                visibility: 'hidden',
+                src: 'reading.js'
               },
               {
                 index: 2,
                 title: '反馈',
                 icon: 'http://o94apbmjs.bkt.clouddn.com/17.png',
-                src: 'post.js',
-                visibility: 'hidden',
+                src: 'post.js'
               },
               {
                 index: 3,
                 title: '设置',
                 icon: 'http://o94apbmjs.bkt.clouddn.com/setting.png',
-                src: 'setting.js',
-                visibility: 'hidden',
+                src: 'setting.js'
               }
             ]
         },
+
+        created: function(){
+            var bundleUrl = this.$getConfig().bundleUrl;
+            bundleUrl = new String(bundleUrl);
+
+            var nativeBase;
+            var dir = 'dist/';
+            var isAndroidAssets = bundleUrl.indexOf('file://assets/') >= 0;
+
+            var isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+            if (isAndroidAssets) {
+              nativeBase = 'file://assets/';
+            }
+            else if (isiOSAssets) {
+              nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+            }
+            else {
+             //http://127.0.0.1:12580/examples/build/reading.js
+              var host = 'localhost:12580';
+              var matches = /\/\/([^\/]+?)\//.exec(this.$getConfig().bundleUrl);
+              if (matches && matches.length >= 2) {
+                host = matches[1];
+              }
+              //nativeBase = 'http://' + host + '/weex_tmp/h5_render/';
+              nativeBase = 'http://' + host + '/' + this.dir + '/build/';
+            }
+            var h5Base = './index.html?page=./' + this.dir + '/build/';
+            //Native端
+            var base = nativeBase;
+            //H5端
+            if (typeof window === 'object') {
+              base = h5Base;
+            }
+            this.baseURL = base;
+        },
         methods: {
             onclickitem: function(e){
+                var vm = this;
                 var obj =  e.target.attr;
-                var url = './index.html?page=./dist/' + obj.src;
+                var url = this.baseURL + obj.src;
                 var navigator = require('@weex-module/navigator');
                 var params = {
                     url: url,
                     animated : 'true',
                 }
                 navigator.push(params, function(e) {});
+
+                /*var modal = require('@weex-module/modal');
+                 modal.alert({
+                  'message': params.url,
+                  'okTitle': 'ok',
+                  'cancelTitle': 'cancel'
+                }, function() {
+                  //this.toast(params.url);
+                  //vm.$call('navigator','push',params, function () {});                 
+                });*/
+
             }
         }
     }

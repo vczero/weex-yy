@@ -1,23 +1,17 @@
 <template>
-    <wxc-navpage  title="{{title}}" background-color="#FFF" left-item-title="阅读" left-item-src="http://o94apbmjs.bkt.clouddn.com/left_icon3.png">
-        <div class="wrapper">
-            <web src="{{src}}" style="height:{{height}};" onpagestart="pagestart" onpagefinish="pagefinish" onerror="error"></web>
-        </div>
-    </wxc-navpage>
+    <div class="wrapper">
+        <web class="web" src="{{src}}" style="height:{{height}};" onpagestart="pagestart" onpagefinish="pagefinish" onerror="error"></web>
+    </div>
 </template>
+
 
 <style>
     .text{
         font-size:26;
     }
 
-    .wrapper {
-        width: 750;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    .web{
+        flex:1;
     }
 </style>
 <script>

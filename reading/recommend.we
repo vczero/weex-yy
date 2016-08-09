@@ -1,0 +1,119 @@
+<template>
+    <div>
+      <text class="title-big">推荐专题</text>
+      <div class="img-view">
+         <div class="img-div-left center" onclick="openWebPage(0)">
+            <image class="img" style="height:200;width:{{width}}};" resize="cover" src="{{imgs[0]}}" />
+         </div>
+         <div class="img-div-right center" onclick="openWebPage(1)">
+            <image class="img" style="height:200;width:{{width}}};" resize="cover" src="{{imgs[1]}}" />
+         </div>
+      </div>
+    </div>
+</template>
+
+<style>
+ .center{
+   justify-content:center;
+   align-items:center;
+  }
+ .title-big{
+   font-size:32;
+   font-weight:200;
+   color:#444444;
+   margin-left:10;
+ }
+ .img-view{
+   flex-direction:row;
+   height:200;
+   margin-top:20;
+ }
+ .img-div-left{
+   flex:1;
+   margin-left:10;
+   margin-right:5;
+   height:200;
+ }
+ .img-div-right{
+   flex:1;
+   margin-left:5;
+   margin-right:10;
+ }
+ .img{
+   border-radius:5;
+ }
+</style>
+
+<script>
+  var webview = require('@weex-module/webview');
+  module.exports = {
+    data:{
+      width: 0,
+      recommend: [],
+      dir: 'examples',
+      baseURL: ''
+    },
+    created: function(){
+        //这里需要兼容web和Native，因为web有viewport的scale控制，而native没有
+        var config = this.$getConfig();
+        this.width = 360;
+
+        var bundleUrl = config.bundleUrl;
+        bundleUrl = new String(bundleUrl);
+        var nativeBase;
+        var isAndroidAssets = bundleUrl.indexOf('file://assets/') >= 0;
+
+        var isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+        if (isAndroidAssets) {
+          nativeBase = 'file://assets/';
+        }
+        else if (isiOSAssets) {
+          nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+        }
+        else {
+         //http://127.0.0.1:12580/examples/build/reading.js
+          var host = 'localhost:12580';
+          var matches = /\/\/([^\/]+?)\//.exec(this.$getConfig().bundleUrl);
+          if (matches && matches.length >= 2) {
+            host = matches[1];
+          }
+          //nativeBase = 'http://' + host + '/weex_tmp/h5_render/';
+          nativeBase = 'http://' + host + '/' + this.dir + '/build/';
+        }
+        var h5Base = './index.html?page=./' + this.dir + '/build/';
+        //Native端
+        var base = nativeBase;
+        //H5端
+        if (typeof window === 'object') {
+          base = h5Base;
+        }
+        this.baseURL = base;
+    },
+    computed: {
+        imgs: {
+            get: function(){
+                var imgs = [];
+                var recommend = this.recommend;
+                for(var i in recommend){
+                    imgs.push(recommend[i].img);
+                }
+                return imgs;
+            }
+        }
+    },
+    methods: {
+        openWebPage: function(index){
+            var url = this.recommend[index].url;
+            var title = this.recommend[index].title;
+            //var path = './index.html?page='+ './dist/yywebview.js&weixin_title=' + title + '&weixin_url=' + url;
+            var navigator = require('@weex-module/navigator');
+            var params = {
+                'url': this.baseURL + 'yywebview.js?weixin_title=' + title + '&weixin_url=' + url,
+                'animated' : 'true',
+            }
+            console.log('------',params.url);
+            navigator.push(params, function(e) {});
+        }
+    }
+  };
+</script>

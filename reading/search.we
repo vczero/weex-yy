@@ -1,17 +1,16 @@
 <template>
-  <div style="height:100;">
-    <input class="search" type="text" autofocus="true" placeholder="搜索"></input>
+  <div style="height:80; margin-top:25;">
+    <input class="search" type="text"  placeholder="搜索"></input>
   </div>
 </template>
 
 <style>
  .search {
    height:75;
-   margin-top:22;
    padding-left:20;
    font-size:30;
    border-width:1;
-   border-color:'#C1C1C1';
+   border-color:#C1C1C1;
    margin-left:10;
    margin-right:10;
    outline:none;

@@ -1,0 +1,95 @@
+<template>
+    <div class="row">
+        <div style="flex:1;" class="item" url="{{url}}" title="{{title}}"  repeat="{{hotRecommend}}" onclick="openWebPage">
+            <image class="img" src="{{img}}" style="width:{{width}};" resize="cover"></image>
+            <text class="title" style="width:{{width}};">{{title}}</text>
+        </div>
+    </dvi>
+</template>
+
+<style>
+    .row{
+        flex-direction: row;
+        height: 310;
+        margin-top:5;
+        margin-right:10;
+    }
+    .title{
+        font-size:26;
+        font-weight:300;
+        margin-top:5;
+        color:#414141;
+        lines: 2;
+        text-overflow:ellipsis;
+        height:80;
+    }
+
+    .img{
+        height:240;
+    }
+    .item{
+        margin-left:10;
+    }
+</style>
+
+<script>
+    module.exports = {
+        data: {
+           hotRecommend: [],
+           width: 0,
+           dir: 'examples',
+           baseURL: ''
+        },
+        created: function(){
+            //var width = (this.$getConfig().env.deviceWidth - 50) /4;
+            //this.width = width;
+            this.width = 175;
+
+            var bundleUrl = this.$getConfig().bundleUrl;
+            bundleUrl = new String(bundleUrl);
+
+            var nativeBase;
+            var isAndroidAssets = bundleUrl.indexOf('file://assets/') >= 0;
+
+            var isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+            if (isAndroidAssets) {
+              nativeBase = 'file://assets/';
+            }
+            else if (isiOSAssets) {
+              nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+            }
+            else {
+             //http://127.0.0.1:12580/examples/build/reading.js
+              var host = 'localhost:12580';
+              var matches = /\/\/([^\/]+?)\//.exec(this.$getConfig().bundleUrl);
+              if (matches && matches.length >= 2) {
+                host = matches[1];
+              }
+              //nativeBase = 'http://' + host + '/weex_tmp/h5_render/';
+              nativeBase = 'http://' + host + '/' + this.dir + '/build/';
+            }
+            var h5Base = './index.html?page=./' + this.dir + '/build/';
+            //Native端
+            var base = nativeBase;
+            //H5端
+            if (typeof window === 'object') {
+              base = h5Base;
+            }
+            this.baseURL = base;
+        },
+        methods: {
+            openWebPage: function(e){
+                var obj = e.target.attr;
+                var url = obj.url;
+                var title = obj.title;
+                
+                var navigator = require('@weex-module/navigator');
+                var params = {
+                    'url': this.baseURL + 'yywebview.js?weixin_title=' + title + '&weixin_url=' + url,
+                    'animated' : 'true',
+                }
+                navigator.push(params, function(e) {});
+            }
+        }
+    };
+</script>

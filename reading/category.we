@@ -48,10 +48,42 @@
     module.exports = {
         data: {
             list: [],
-            texts:[]
+            texts:[],
+            dir: 'examples',
+            baseURL: ''
         },
         created: function(){
+            var bundleUrl = this.$getConfig().bundleUrl;
+            bundleUrl = new String(bundleUrl);
 
+            var nativeBase;
+            var isAndroidAssets = bundleUrl.indexOf('file://assets/') >= 0;
+
+            var isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+            if (isAndroidAssets) {
+              nativeBase = 'file://assets/';
+            }
+            else if (isiOSAssets) {
+              nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+            }
+            else {
+             //http://127.0.0.1:12580/examples/build/reading.js
+              var host = 'localhost:12580';
+              var matches = /\/\/([^\/]+?)\//.exec(this.$getConfig().bundleUrl);
+              if (matches && matches.length >= 2) {
+                host = matches[1];
+              }
+              //nativeBase = 'http://' + host + '/weex_tmp/h5_render/';
+              nativeBase = 'http://' + host + '/' + this.dir + '/build/';
+            }
+            var h5Base = './index.html?page=./' + this.dir + '/build/';
+            //Native端
+            var base = nativeBase;
+            //H5端
+            if (typeof window === 'object') {
+              base = h5Base;
+            }
+            this.baseURL = base;
         },
         computed: {
            texts: {
@@ -70,12 +102,12 @@
                 var title = obj.title;
                 var type = this._getType(title);
                 //加载列表
-                var url = './index.html?page='+ './dist/list.js&type=' + type + '&title=' + title;
                 var navigator = require('@weex-module/navigator');
                 var params = {
-                    'url': url,
+                    'url': this.baseURL + 'reading/list.js?type=' + type + '&title=' + title,
                     'animated' : 'true',
                 }
+                
                 navigator.push(params, function(e) {});
             },
 

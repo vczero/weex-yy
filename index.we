@@ -1,3 +1,22 @@
+/*<template>
+  <div>
+    <text>首页</text>
+    <tabbar></tabbar>
+  </div>
+</template>
+
+<style>
+
+</style>
+
+<script>
+  require('./components-add/tabbar.we');
+    module.exports = {
+      data: {}
+    }
+</script>*/
+
+
 <template>
   <div>
       <search></search>
@@ -43,7 +62,7 @@
     }
     .scroller{
         position: absolute;
-        top: 140;
+        top: 160;
         left: 0;
         right: 0;
         bottom: 88;
@@ -57,13 +76,9 @@
     require('./reading/recommend.we');
     require('./reading/hot-recommend.we');
     require('./reading/category.we');
-
-    var utils = require('./../example/utils')
-    var obj1 = {a: 1}
-    var obj2 = {b: 2}
-    utils.extend(obj1, obj2)
-    console.log('---测试util----',obj1);
-
+    //var util = require('./util');
+    
+    var SERVER_PATH = 'http://123.57.39.116:3000/data/read?type=';
     module.exports = {
         data:{
          width: 0,
@@ -83,16 +98,24 @@
             _getData: function(){
                 var that = this;
                 var stream = require('@weex-module/stream');
-                var url = "http://123.57.39.116:3000/data/read?type=config";
+                var url = SERVER_PATH + 'config';
                 stream.fetch({
                   method: 'GET',
                   url: url,
                   type:'json'
                 }, function(response) {
                     if(response.status == 200){
+                      //这里需要兼容web和Native，Native需要将传递的数据JSON化
                       var data = response.data;
+                      try{
+                        data = JSON.parse(response.data); 
+                      }catch(e){}
+                                                        
                       if(data.status){
+
                         var obj = data.data;
+                        that.recommendTopic.$set(0, obj.recommendTopic[0]);
+                        that.recommendTopic.$set(1, obj.recommendTopic[1]);                     
                         that.recommendTopic = obj.recommendTopic;
                         that.hotRecommend1 = obj.hotTopic.slice(0, 4);
                         that.hotRecommend2 = obj.hotTopic.slice(4, 8);
@@ -105,9 +128,10 @@
                       }
                     }else{
                         //TODO:错误处理
+                        //console.log('--response:-- ', response);
                     }
                 },function(err){
-                    //console.log(err);
+                    //console.log('---err---', err);
                     //TODO:错误处理
                 });
             }

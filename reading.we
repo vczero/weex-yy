@@ -1,0 +1,121 @@
+<template>
+  <div>
+      <search></search>
+      <hr></hr>
+      <scroller class="scroller">
+         <recommend recommend="{{recommendTopic}}"></recommend>
+         <hr></hr>
+         <text class="title-big">热门推荐</text>
+         <hot-recommend hot-recommend="{{hotRecommend1}}"></hot-recommend>
+         <hot-recommend hot-recommend="{{hotRecommend2}}"></hot-recommend>
+
+         <hr></hr>
+         <text class="title-big">专题分类</text>
+         <category list="{{category1}}"></category>
+         <category list="{{category2}}"></category>
+
+         <hr></hr>
+         <text class="title-big">轻松一刻</text>
+         <hot-recommend hot-recommend="{{cookies1}}"></hot-recommend>
+         <hot-recommend hot-recommend="{{cookies2}}"></hot-recommend>
+
+         <div style="height:50;"></div>
+      </scroller>
+      <tabbar></tabbar>
+  </div>
+</template>
+
+<style>
+    .title-big{
+       font-size:32;
+       font-weight:200;
+       color:#444444;
+       margin-left:10;
+       margin-bottom:10;
+    }
+    .container {
+        position: absolute;
+        top: 0; left: 0;
+        right: 0;
+        bottom: 0;
+        margin-top: 0;
+        margin-bottom: 88;
+    }
+    .scroller{
+        position: absolute;
+        top: 160;
+        left: 0;
+        right: 0;
+        bottom: 88;
+    }
+</style>
+
+<script>
+    require('./components-add/tabbar.we');
+    require('./reading/search.we');
+    require('./reading/hr.we');
+    require('./reading/recommend.we');
+    require('./reading/hot-recommend.we');
+    require('./reading/category.we');
+    //var util = require('./util');
+    
+    var SERVER_PATH = 'http://123.57.39.116:3000/data/read?type=';
+    module.exports = {
+        data:{
+         width: 0,
+         height: 0,
+         recommendTopic:[],
+         hotRecommend1:[],
+         hotRecommend2:[],
+         category1: [],
+         category2: [],
+         cookies1: [],
+         cookies2: []
+        },
+        created: function(){
+            this._getData();
+        },
+        methods:{
+            _getData: function(){
+                var that = this;
+                var stream = require('@weex-module/stream');
+                var url = SERVER_PATH + 'config';
+                stream.fetch({
+                  method: 'GET',
+                  url: url,
+                  type:'json'
+                }, function(response) {
+                    if(response.status == 200){
+                      //这里需要兼容web和Native，Native需要将传递的数据JSON化
+                      var data = response.data;
+                      try{
+                        data = JSON.parse(response.data); 
+                      }catch(e){}
+                                                        
+                      if(data.status){
+
+                        var obj = data.data;
+                        that.recommendTopic.$set(0, obj.recommendTopic[0]);
+                        that.recommendTopic.$set(1, obj.recommendTopic[1]);                     
+                        that.recommendTopic = obj.recommendTopic;
+                        that.hotRecommend1 = obj.hotTopic.slice(0, 4);
+                        that.hotRecommend2 = obj.hotTopic.slice(4, 8);
+                        that.category1 = obj.category.slice(0, 2);
+                        that.category2 = obj.category.slice(2, 4);
+                        that.cookies1 = obj.other.slice(0, 4);
+                        that.cookies2 = obj.other.slice(4, 8);
+                      }else{
+                       //TODO:
+                      }
+                    }else{
+                        //TODO:错误处理
+                        //console.log('--response:-- ', response);
+                    }
+                },function(err){
+                    //console.log('---err---', err);
+                    //TODO:错误处理
+                });
+            }
+        }
+      };
+</script>
