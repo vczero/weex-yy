@@ -19,4 +19,8 @@
 ![](show-img/1.png)       
 ![](show-img/2.png)     
 ![](show-img/3.png)      
-![](show-img/4.png)       
+![](show-img/4.png)           
+
+
+## H5效果和定制化打包      
+参考：https://github.com/vczero/weex-yy-h5
